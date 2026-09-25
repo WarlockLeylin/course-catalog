@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Course Catalog",
-  description: "My first node.js project",
+  description: "Advanced Web Technologies - Lab 2",
 };
 
 export default function RootLayout({
@@ -26,30 +26,40 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full dark`}
     >
-      <body className="min-h-full flex flex-col max-w-5xl mx-auto px-4 w-full">
-        {/* Styled Navigation Bar */}
-        <nav className="flex gap-4 px-6 py-4 border-b border-slate-200 mb-8">
-          <Link
-            href="/"
-            className="px-3 py-2 rounded-md hover:bg-slate-100 transition font-medium"
-          >
-            Home
-          </Link>
-          <Link
-            href="/courses"
-            className="px-3 py-2 rounded-md hover:bg-slate-100 transition font-medium"
-          >
-            Courses
-          </Link>
-          <Link
-            href="/about"
-            className="px-3 py-2 rounded-md hover:bg-slate-100 transition font-medium"
-          >
-            About
-          </Link>
-        </nav>
+      <body className="min-h-full flex flex-col max-w-6xl mx-auto px-6 py-6 w-full bg-slate-950 text-slate-100">
+        <header className="sticky top-4 z-50 mb-10">
+          <nav className="flex items-center justify-between px-6 py-3.5 bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-800 shadow-lg">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_#6366f1]" />
+              <span className="font-bold text-slate-100 tracking-tight text-lg">
+                Node.js Project
+              </span>
+            </div>
+
+            <div className="flex items-center gap-1">
+              <Link
+                href="/"
+                className="px-4 py-2 rounded-xl text-sm font-medium text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all"
+              >
+                Home
+              </Link>
+              <Link
+                href="/courses"
+                className="px-4 py-2 rounded-xl text-sm font-medium text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all"
+              >
+                Courses
+              </Link>
+              <Link
+                href="/about"
+                className="px-4 py-2 rounded-xl text-sm font-medium text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all"
+              >
+                About
+              </Link>
+            </div>
+          </nav>
+        </header>
 
         <main className="flex-1">{children}</main>
       </body>
