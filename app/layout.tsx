@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Course Catalog",
-  description: "Advanced Web Technologies Lab 1",
+  description: "My first node.js project",
 };
 
 export default function RootLayout({
@@ -28,15 +28,25 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col p-6 max-w-4xl mx-auto">
-        <nav className="flex gap-6 mb-8 pb-4 border-b border-gray-200">
-          <Link href="/" className="font-semibold hover:text-blue-600 transition">
+      <body className="min-h-full flex flex-col max-w-5xl mx-auto px-4 w-full">
+        {/* Styled Navigation Bar */}
+        <nav className="flex gap-4 px-6 py-4 border-b border-slate-200 mb-8">
+          <Link
+            href="/"
+            className="px-3 py-2 rounded-md hover:bg-slate-100 transition font-medium"
+          >
             Home
           </Link>
-          <Link href="/courses" className="font-semibold hover:text-blue-600 transition">
+          <Link
+            href="/courses"
+            className="px-3 py-2 rounded-md hover:bg-slate-100 transition font-medium"
+          >
             Courses
           </Link>
-          <Link href="/about" className="font-semibold hover:text-blue-600 transition">
+          <Link
+            href="/about"
+            className="px-3 py-2 rounded-md hover:bg-slate-100 transition font-medium"
+          >
             About
           </Link>
         </nav>

@@ -31,3 +31,9 @@ Run the development server:
 And finally, open
 * http://localhost:3000
 
+## Lab 2
+
+* Installed and configured **shadcn/ui** (`Card` and `Button` components).
+* Refactored `CourseCard.tsx` using `CardHeader`, `CardTitle`, and `CardContent`
+* Applied a responsive layout to the course grid (`grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`).
+* Enhanced navigation styling with padding, hover effects, and a bottom border.
