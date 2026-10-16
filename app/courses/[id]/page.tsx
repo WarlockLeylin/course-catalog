@@ -1,20 +1,13 @@
 import { getCourse, getCourses } from "@/lib/courses";
-import LikeButton from "@/components/LikeButton";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { LikeButton } from "@/components/LikeButton";
+import { EnrollForm } from "@/components/EnrollForm";
 
 type PageProps = {
   params: Promise<{ id: string }>;
 };
 
-export async function generateStaticParams() {
-  const courses = await getCourses();
-  return courses.map((course) => ({
-    id: course.id,
-  }));
-}
-
-export default async function CourseDetailPage({ params }: PageProps) {
+export default async function CoursePage({ params }: PageProps) {
   const { id } = await params;
   const course = await getCourse(id);
 
@@ -23,32 +16,22 @@ export default async function CourseDetailPage({ params }: PageProps) {
   }
 
   return (
-    <main className="space-y-6 max-w-2xl">
-      <Link
-        href="/courses"
-        className="inline-flex items-center text-sm font-medium text-slate-400 hover:text-indigo-400 transition-colors"
-      >
-        ← Back to Courses
-      </Link>
-
-      <div className="space-y-3">
-        <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 bg-indigo-950/80 px-3 py-1 rounded-full border border-indigo-800/50">
-          {course.isElective ? "Elective" : "Required"}
-        </span>
-        <h1 className="text-3xl font-bold text-slate-100">{course.title}</h1>
+    <main className="p-6 max-w-2xl">
+      <h1 className="text-3xl font-bold mb-2">{course.title}</h1>
+      <p className="text-slate-700 mb-4">{course.description}</p>
+      <div className="mb-6 flex gap-4 text-sm text-slate-600">
+        <span>Credits: {course.credits}</span>
+        {course.isElective && <span className="font-semibold text-blue-600">Elective course</span>}
       </div>
 
-      <p className="text-slate-300 text-base leading-relaxed">
-        {course.description}
-      </p>
-
-      <div className="flex gap-6 items-center text-sm font-medium text-slate-400 pt-2 border-t border-slate-800">
-        <span>Credits: {course.credits} ECTS</span>
+      <div className="flex items-center gap-4 mb-8">
+        <LikeButton courseId={course.id} initialLikes={course.likes} />
       </div>
 
-      <div className="pt-2">
-        <LikeButton initialLikes={course.likes} />
-      </div>
+      <section className="border-t pt-6">
+        <h2 className="text-xl font-semibold mb-2">Enroll in this course</h2>
+        <EnrollForm courseId={course.id} />
+      </section>
     </main>
   );
 }
