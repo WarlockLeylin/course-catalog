@@ -57,6 +57,12 @@ export default function RootLayout({
               >
                 About
               </Link>
+              <Link
+                href="/filter"
+                className="px-4 py-2 rounded-xl text-sm font-medium text-slate-400 hover:text-slate-100 hover:bg-slate-800/80 transition-all"
+              >
+                Filter
+              </Link>
             </div>
           </nav>
         </header>
