@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/course-catalog.iml" filepath="$PROJECT_DIR$/.idea/course-catalog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../course-catalog-api/.idea/course-catalog-api.iml" filepath="$PROJECT_DIR$/../course-catalog-api/.idea/course-catalog-api.iml" />
+    </modules>
+  </component>
+</project>
