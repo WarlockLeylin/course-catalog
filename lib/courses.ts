@@ -2,7 +2,7 @@ export type Course = {
   id: string;
   title: string;
   description: string;
-  credits: int;
+  credits: number;
   isElective: boolean;
   likes: number;
 };
